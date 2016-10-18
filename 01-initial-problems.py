@@ -112,15 +112,18 @@ def palindrome(string):
 def char_histogram(string):
 	dictionary = {}
 	
-	for letter in string:
-		current_letter = letter
-		counter = 0
+	# for letter in string:
+	# 	current_letter = letter
+	# 	counter = 0
 
-		for sub_letter in string:
-			if current_letter == sub_letter:
-				counter += 1
+	# 	for sub_letter in string:
+	# 		if current_letter == sub_letter:
+	# 			counter += 1
 
-		dictionary[current_letter] = counter
+	# 	dictionary[current_letter] = counter
+
+	for char in string:
+		dictionary[char] = list(string).count(char)
 
 	return dictionary
 		
