@@ -151,9 +151,9 @@ def anagrams(string, string1):
     else:
         return "NOT ANAGRAMS"
 
-# print(anagrams("BRADE", "BEARD"))
-# print(anagrams("kilata", "cvetelina_yaneva"))
-# print(anagrams("listen", "silent"))
+print(anagrams("BRADE", "BEARD"))
+print(anagrams("kilata", "cvetelina_yaneva"))
+print(anagrams("listen", "silent"))
 
 # Find the shortest list of gas stations you have to visit in order to
 # reach then desired destination
@@ -172,7 +172,7 @@ def gas_stations(distance, km_per_tank, stations):
             index += 1
         km_per_tank += km_per_tank
         print(nearest_stations)
-gas_stations(320, 90, [50, 80, 140, 180, 220, 290])
+# gas_stations(320, 90, [50, 80, 140, 180, 220, 290])
 
 
 """
