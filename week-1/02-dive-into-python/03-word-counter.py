@@ -28,11 +28,11 @@ def word_counter(inp):
         buff = ''
         for row in range(0, matrix_rows):
             buff += inp[row][col]
-            ocurrences = buff.count(searched_word)
-            total_ocurences += ocurrences
-            buff = buff[::-1]
-            ocurrences = buff.count(searched_word)
-            total_ocurences += ocurrences
+        ocurrences = buff.count(searched_word)
+        total_ocurences += ocurrences
+        buff = buff[::-1]
+        ocurrences = buff.count(searched_word)
+        total_ocurences += ocurrences
 
     print(total_ocurences)
 
