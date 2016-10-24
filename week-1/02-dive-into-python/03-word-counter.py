@@ -35,6 +35,25 @@ def word_counter(inp):
         total_ocurences += ocurrences
 
     # iterate along cols left - right and rows top - bottom
+    shorten = False
+    rows_reach = matrix_rows
+    cols_reach = matrix_cols
+    for col in range(cols_reach):
+        curr_col = col
+        buff = ''
+        for row in range(rows_reach):
+            buff += inp[row][curr_col]
+            curr_col += 1
+            if row == matrix_rows - 2 and curr_col == matrix_cols - 1:
+                shorten = True
+        if shorten == True:
+            rows_reach -= 1
+        ocurrences = buff.count(searched_word)
+        total_ocurences += ocurrences
+        buff = buff[::-1]
+        ocurrences = buff.count(searched_word)
+        total_ocurences += ocurrences
+
 
     print(total_ocurences)
 
