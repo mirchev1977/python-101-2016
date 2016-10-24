@@ -14,7 +14,7 @@ def word_counter(inp):
         val = inp[x].split(' ')
         inp[x] = val
 
-    # iterate rows
+    # iterate rows horizontally
     for x in range(matrix_rows):
         current_row = "".join(inp[x])
         ocurrences = current_row.count(searched_word)
@@ -22,7 +22,17 @@ def word_counter(inp):
         current_row = current_row[::-1]
         ocurrences = current_row.count(searched_word)
         total_ocurences += ocurrences
-        print(current_row)
+
+    # iterate cols vertically
+    for col in range(matrix_cols):
+        buff = ''
+        for row in range(0, matrix_rows):
+            buff += inp[row][col]
+            ocurrences = buff.count(searched_word)
+            total_ocurences += ocurrences
+            buff = buff[::-1]
+            ocurrences = buff.count(searched_word)
+            total_ocurences += ocurrences
 
     print(total_ocurences)
 
