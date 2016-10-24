@@ -34,6 +34,8 @@ def word_counter(inp):
         ocurrences = buff.count(searched_word)
         total_ocurences += ocurrences
 
+    # iterate along cols left - right and rows top - bottom
+
     print(total_ocurences)
 
 
