@@ -15,9 +15,9 @@ def iterate_diagonals(inp, matrix_rows, matrix_cols, searched_word):
             rows_reach -= 1
         ocurrences = buff.count(searched_word)
         total_ocurences += ocurrences
-        buff = buff[::-1]
-        ocurrences = buff.count(searched_word)
-        total_ocurences += ocurrences
+        # buff = buff[::-1]
+        # ocurrences = buff.count(searched_word)
+        # total_ocurences += ocurrences
     return total_ocurences
 
 # Word Counter
@@ -61,13 +61,16 @@ def word_counter(inp):
 
     # create different shapes matrices
     matrix_1 = inp[::-1]
+    total_ocurences += iterate_diagonals(matrix_1, matrix_rows, matrix_cols, searched_word)
 
     matrix_2 = []
     for x in matrix_1:
         x = x[::-1]
         matrix_2.append(x)
+    total_ocurences += iterate_diagonals(matrix_2, matrix_rows, matrix_cols, searched_word)
 
     matrix_3 = matrix_2[::-1]
+    total_ocurences += iterate_diagonals(matrix_3, matrix_rows, matrix_cols, searched_word)
 
     print(total_ocurences)
 
