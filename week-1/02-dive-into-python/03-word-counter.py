@@ -1,3 +1,25 @@
+def iterate_diagonals(inp, matrix_rows, matrix_cols, searched_word):
+    total_ocurences = 0
+    shorten = False
+    rows_reach = matrix_rows
+    cols_reach = matrix_cols
+    for col in range(cols_reach):
+        curr_col = col
+        buff = ''
+        for row in range(rows_reach):
+            buff += inp[row][curr_col]
+            curr_col += 1
+            if row == matrix_rows - 2 and curr_col == matrix_cols - 1:
+                shorten = True
+        if shorten == True:
+            rows_reach -= 1
+        ocurrences = buff.count(searched_word)
+        total_ocurences += ocurrences
+        buff = buff[::-1]
+        ocurrences = buff.count(searched_word)
+        total_ocurences += ocurrences
+    return total_ocurences
+
 # Word Counter
 def word_counter(inp):
     searched_word = inp[0]
@@ -35,25 +57,17 @@ def word_counter(inp):
         total_ocurences += ocurrences
 
     # iterate along cols left - right and rows top - bottom
-    shorten = False
-    rows_reach = matrix_rows
-    cols_reach = matrix_cols
-    for col in range(cols_reach):
-        curr_col = col
-        buff = ''
-        for row in range(rows_reach):
-            buff += inp[row][curr_col]
-            curr_col += 1
-            if row == matrix_rows - 2 and curr_col == matrix_cols - 1:
-                shorten = True
-        if shorten == True:
-            rows_reach -= 1
-        ocurrences = buff.count(searched_word)
-        total_ocurences += ocurrences
-        buff = buff[::-1]
-        ocurrences = buff.count(searched_word)
-        total_ocurences += ocurrences
+    total_ocurences += iterate_diagonals(inp, matrix_rows, matrix_cols, searched_word)
 
+    # create different shapes matrices
+    matrix_1 = inp[::-1]
+
+    matrix_2 = []
+    for x in matrix_1:
+        x = x[::-1]
+        matrix_2.append(x)
+
+    matrix_3 = matrix_2[::-1]
 
     print(total_ocurences)
 
