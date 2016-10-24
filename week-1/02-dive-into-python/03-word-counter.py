@@ -4,13 +4,16 @@ def iterate_diagonals(inp, matrix_rows, matrix_cols, searched_word):
     rows_reach = matrix_rows
     cols_reach = matrix_cols
     for col in range(cols_reach):
+        shorten = False
         curr_col = col
         buff = ''
         for row in range(rows_reach):
             buff += inp[row][curr_col]
             curr_col += 1
-            if row == matrix_rows - 2 and curr_col == matrix_cols - 1:
+            # if row == matrix_rows - 2 and curr_col == matrix_cols - 1:
+            if curr_col == matrix_cols:
                 shorten = True
+                break
         if shorten == True:
             rows_reach -= 1
         ocurrences = buff.count(searched_word)
@@ -55,6 +58,7 @@ def word_counter(inp):
         buff = buff[::-1]
         ocurrences = buff.count(searched_word)
         total_ocurences += ocurrences
+
 
     # iterate along cols left - right and rows top - bottom
     total_ocurences += iterate_diagonals(inp, matrix_rows, matrix_cols, searched_word)
