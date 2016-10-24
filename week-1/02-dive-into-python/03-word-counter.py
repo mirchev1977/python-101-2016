@@ -76,28 +76,50 @@ def word_counter(inp):
     matrix_3 = matrix_2[::-1]
     total_ocurences += iterate_diagonals(matrix_3, matrix_rows, matrix_cols, searched_word)
 
+    # check if palindrome
+    sear_w_len = len(searched_word) // 2;
+    first = searched_word[:sear_w_len]
+    last = searched_word[-sear_w_len:][::-1]
+
+    if first == last:
+        total_ocurences //= 2
+
+
     print(total_ocurences)
 
 
-# inp = ["ivan",
-#        "5 4",
-#        "i v a n",
-#        "e v n h",
-#        "i n a v",
-#        "m v v n",
-#        "q r i t"]
+inp = ["ivan",
+       "5 4",
+       "i v a n",
+       "e v n h",
+       "i n a v",
+       "m v v n",
+       "q r i t"]
 
-inp = [
-    "actually",
-    "8 15",
-    "i v a n q h r e z g t z o y m",
-    "e v n h t r x e k y d a i l c",
-    "i a c t u a l l y m c x r l e",
-    "m v c n p u a m n t l u e a a",
-    "q r i t w e a q u p r x t u z",
-    "p e a c t u a l l y w p y t m",
-    "o y h t r e l u f p q n z c s",
-    "p a c t u a l l y u r e q a r"
-]
+# inp = [
+#     "actually",
+#     "8 15",
+#     "i v a n q h r e z g t z o y m",
+#     "e v n h t r x e k y d a i l c",
+#     "i a c t u a l l y m c x r l e",
+#     "m v c n p u a m n t l u e a a",
+#     "q r i t w e a q u p r x t u z",
+#     "p e a c t u a l l y w p y t m",
+#     "o y h t r e l u f p q n z c s",
+#     "p a c t u a l l y u r e q a r"
+# ]
+
+# inp = [
+#     "madam",
+#     "8 12",
+#     "z v a n q h r e z g t z",
+#     "e v m h t r x e k y m a",
+#     "i a c a u a l l y a c x",
+#     "m v c n d u a m d t l u",
+#     "q t i t w a a a u p r x",
+#     "p e m a d a m l l y w p",
+#     "o y h t e e l u f p q n",
+#     "p a c t u a l l y u r e",
+# ]
 
 word_counter(inp)
