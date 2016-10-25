@@ -28,8 +28,8 @@ def increasing_or_decreasing(input_list):
         return False
 
 print(increasing_or_decreasing([1, 2, 3, 4, 5]))
-print(increasing_or_decreasing([9,8,7,6]))
-print(increasing_or_decreasing([5,6,-10]))
-print(increasing_or_decreasing([1,1,1,1]))
+print(increasing_or_decreasing([9, 8, 7, 6]))
+print(increasing_or_decreasing([5, 6, -10]))
+print(increasing_or_decreasing([1, 1, 1, 1]))
 print(increasing_or_decreasing([-5, -4, -3, -2, -1]))
 print(increasing_or_decreasing([-1, -2, -3, -4, -5, -6, -7]))
