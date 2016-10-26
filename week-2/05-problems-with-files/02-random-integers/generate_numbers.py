@@ -14,14 +14,9 @@ def main(n):
     concatinated_numbers = " ".join(random_numbers)
 
     with io.FileIO("numbers.txt", "w") as file:
-    	bytes = str.encode(concatinated_numbers)
-    	file.write(bytes)
+        bytes_ = str.encode(concatinated_numbers)
+        file.write(bytes_)
+
 
 if __name__ == '__main__':
     main(sys.argv[1])
-
-
-# import io
-
-# with io.FileIO("foobar.txt", "w") as file:
-#     file.write("Hello!")
