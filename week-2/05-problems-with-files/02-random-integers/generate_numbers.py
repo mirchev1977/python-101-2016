@@ -13,7 +13,7 @@ def main(n):
 
     concatinated_numbers = " ".join(random_numbers)
 
-    with io.FileIO("generated_numbers.txt", "w") as file:
+    with io.FileIO("numbers.txt", "w") as file:
     	bytes = str.encode(concatinated_numbers)
     	file.write(bytes)
 
