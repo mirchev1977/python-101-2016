@@ -3,8 +3,8 @@ import sys
 
 
 def main():
-    filename = sys.argv[1]
-    with open(filename, 'r') as data:
+    file = sys.argv[1]
+    with open(file, 'r') as data:
         print(data.read())
 
 
