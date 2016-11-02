@@ -34,7 +34,7 @@ class CashDesk:
         sorted_banknotes = self.sort_banknotes()
 
         for banknote in sorted_banknotes:
-        	print("{}$ bills - {}".format(banknote.amount, banknote.bill_count))
+            print("{}$ bills - {}".format(banknote.amount, banknote.bill_count))
 
     def collect_banknotes(self, inp):
         if inp in self.banknotes:
