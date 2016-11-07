@@ -47,3 +47,34 @@ class Matrix:
                     row_buff += '*'
             print(row_buff)
 
+    def iterate_over_matrix(self):
+        for row in range(len(self.matrix)):
+            for col in range(len(self.matrix)):
+                current = self.matrix[row][col]
+                self.check_neighbors(current)
+
+    def check_neighbors(self, cell):
+        neighbors = ((-1, -1), (-1, 0), (-1, 1),
+                     (0, -1), (0, 1),
+                     (1, -1), (1, 0), (1, 1))
+        count_valid = 0
+        for neighbor in neighbors:
+            is_valid = self.neighbor_is_valid(neighbor, cell)
+            if is_valid:
+                count_valid += 1
+
+        print(count_valid, cell.row, cell.col)
+
+    def neighbor_is_valid(self, neighbor, cell):
+        if cell.row + int(neighbor[0] >= 0 and
+                          cell.row + int(neighbor[0]) <=
+                          len(self.matrix) - 1 and
+                          cell.col + int(neighbor[1]) >= 0 and
+                          cell.col + int(neighbor[1]) <= len(self.matrix) - 1):
+            return True
+        else:
+            return False
+
+
+    def check_living():
+        pass
