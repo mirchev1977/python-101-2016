@@ -4,7 +4,9 @@ from matrix import Matrix
 def main():
     matrix = Matrix()
     matrix.input_living_cells()
-    matrix.find_matrix_dimensions()
+    dimensions = matrix.find_matrix_dimensions()
+    matrix.fill_matrix_with_dead(dimensions)
+    matrix.fill_matrix_with_living()
 
 
 if __name__ == "__main__":

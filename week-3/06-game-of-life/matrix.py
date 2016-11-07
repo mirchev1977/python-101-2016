@@ -5,6 +5,7 @@ class Matrix:
     def __init__(self):
         self.living_cells = []
         self.coord_list = []
+        self.matrix = []
 
     def input_living_cells(self):
         inp = input("Insert number of cells")
@@ -20,4 +21,17 @@ class Matrix:
 
     def find_matrix_dimensions(self):
         greatest = max(self.coord_list)
+        return greatest
 
+    def fill_matrix_with_dead(self, width):
+        for row in range(width * 2):
+            row_list = []
+            for col in range(width * 2):
+                cell = Cell(row, col)
+                row_list.append(cell)
+            self.matrix.append(row_list)
+
+    def fill_matrix_with_living(self):
+        for cell in self.living_cells:
+            current = self.matrix[cell.row][cell.col]
+            current.isAlive = True
