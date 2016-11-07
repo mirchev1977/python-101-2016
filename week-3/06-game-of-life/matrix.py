@@ -35,3 +35,15 @@ class Matrix:
         for cell in self.living_cells:
             current = self.matrix[cell.row][cell.col]
             current.isAlive = True
+
+    def print_matrix(self):
+        for row in range(len(self.matrix)):
+            row_buff = ''
+            for col in range(len(self.matrix)):
+                current = self.matrix[row][col]
+                if current.isAlive is False:
+                    row_buff += '0'
+                else:
+                    row_buff += '*'
+            print(row_buff)
+
