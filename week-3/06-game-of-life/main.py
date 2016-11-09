@@ -11,9 +11,10 @@ def main():
     matrix.fill_matrix_with_living()
     os.system('clear')
 
-    for x in range(20):
+    for i in range(30):
         matrix.print_matrix()
         matrix.iterate_over_matrix()
+        matrix.change_cell_states()
         time.sleep(2)
         os.system('clear')
 

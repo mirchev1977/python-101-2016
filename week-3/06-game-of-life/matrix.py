@@ -6,6 +6,8 @@ class Matrix:
         self.living_cells = []
         self.coord_list = []
         self.matrix = []
+        self.living_neighbors = None
+        self.dead_neighbors = None
 
     def input_living_cells(self):
         inp = input("Insert number of cells")
@@ -19,7 +21,6 @@ class Matrix:
             self.living_cells.append(cell)
 
         print()
-
 
     def find_matrix_dimensions(self):
         greatest = max(self.coord_list)
@@ -56,19 +57,25 @@ class Matrix:
                 living_dead_neighbors = self.check_neighbors(current)
                 living_neighbors = living_dead_neighbors[0]
                 dead_neighbors = living_dead_neighbors[1]
+                current.living_neighbors = living_neighbors
+                current.dead_neighbors = dead_neighbors
+
+    def change_cell_states(self):
+        for row in range(len(self.matrix)):
+            for col in range(len(self.matrix)):
+                current = self.matrix[row][col]
                 self.change_state_of_cell(
-                    current, living_neighbors, dead_neighbors)
+                    current, current.living_neighbors, current.dead_neighbors)
+                current.living_neighbors = None
+                current.dead_neighbors = None
 
     def change_state_of_cell(self, cell, living, dead):
         if cell.isAlive:
             if living < 2 and dead >= 3:
                 cell.isAlive = False
-            return
-
-        if cell.isAlive is False:
+        else:
             if living >= 3:
                 cell.isAlive = True
-            return
 
     def check_neighbors(self, cell):
         neighbors = ((-1, -1), (-1, 0), (-1, 1),
