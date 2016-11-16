@@ -15,12 +15,14 @@ class LinkedListTest(unittest.TestCase):
         self.ll.add_element(9)
         self.assertEqual(self.ll.size(), 3)
 
-    # def test_remove_element(self):
-    #     self.ll.add_element(4)
-    #     size = self.ll.size()
-    #     self.ll.remove(0)
-    #     size2 = self.ll.size()
-    #     self.assertFalse(size == size2)
+    def test_remove_element(self):
+        self.ll.add_element(4)
+        self.ll.add_element(8)
+        size = self.ll.size()
+        self.ll.remove(0)
+        size2 = self.ll.size()
+        print("***print linked list size", size, size2, "****")
+        self.assertFalse(size == size2)
 
 
 if __name__ == '__main__':
