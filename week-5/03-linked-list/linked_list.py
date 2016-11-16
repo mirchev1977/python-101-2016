@@ -1,15 +1,21 @@
+from node import Node
+
+
 class LinkedList:
     def __init__(self):
-        pass
+        self.current_node = None
+        self.__size = 0
 
     def add_element(self, data):
-        pass
+        self.__size += 1
+        node = Node(data, self.current_node)
+        self.current_node = node
 
     def index(self, index):
         pass
 
     def size(self):
-        pass
+        return self.__size
 
     def remove(self, index):
         pass
@@ -29,8 +35,8 @@ class LinkedList:
     def add_list(self, list: "list"):
         pass
 
-    def add_linked_list(self, Linkedlist: LinkedList):
-        pass
+    # def add_linked_list(self, Linkedlist: LinkedList):
+    #     pass
 
     def ll_from_to(self, start_index, end_index):
         pass
