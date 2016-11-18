@@ -3,13 +3,13 @@ from node import Node
 
 class LinkedList:
     def __init__(self):
-        self.current_node = None
+        self.current_node = Node(None, None)
         self.__size = 0
 
     def add_element(self, data):
         self.__size += 1
-        node = Node(data, self.current_node)
-        self.current_node = node
+        node = Node(data, self)
+        self.current_node.next(node)
 
     def index(self, index):
         pass
