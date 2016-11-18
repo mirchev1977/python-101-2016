@@ -4,16 +4,18 @@ def search(lst, searched, middleIndex):
     if searched == lst[middleIndex]:
         return middleIndex
 
-    lst1 = lst[:middleIndex]
-    lst2 = lst[middleIndex:]
 
-    last1 = lst1[-1]
 
-    if last1 == searched:
-        return middleIndex
+    # lst1 = lst[:middleIndex]
+    # lst2 = lst[middleIndex:]
 
-    if lst2[0] == searched:
-        return middleIndex + 1
+    # last1 = lst1[-1]
+
+    # if last1 == searched:
+    #     return middleIndex
+
+    # if lst2[0] == searched:
+    #     return middleIndex + 1
 
     if searched < last1:
         middleIndex = len(lst1) //2
