@@ -7,6 +7,7 @@ class Tree:
         self.current_height = 0
         self._height = 0
         self._count = 1
+        self._tree_levels = []
 
     def add_child(self, root, child):
         self._count += 1
@@ -15,6 +16,24 @@ class Tree:
             self.children.append(subtree)
         else:
             self.find_proper_node(root, child)
+
+    def tree_levels(self):
+        self._tree_levels = []
+        if len(self.children) <= 0:
+            self._tree_levels.append([self.data])
+        else:
+            self._tree_levels.append([self.data])
+            self.__find_tree_levels(self.children)
+
+        return self._tree_levels
+
+    def __find_tree_levels(self, children):
+        lst = []
+        for tree in children:
+            lst.append(tree.data)
+            if len(tree.children) > 0:
+                self.__find_tree_levels(tree.children)
+        self._tree_levels.append(lst)
 
     def count_nodes(self):
         return self._count

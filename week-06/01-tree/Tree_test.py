@@ -4,6 +4,7 @@ from Tree import Tree
 
 class TreeTest(unittest.TestCase):
     """docstring for TreeTest"""
+
     def setUp(self):
         self.tree = Tree(root=5)
 
@@ -198,7 +199,34 @@ class TreeTest(unittest.TestCase):
 
         self.assertEqual(self.tree.count_nodes(), 14)
 
+    def test_tree_levels_method(self):
+        # if only root
+        self.assertEqual(self.tree.tree_levels(), [[5]])
+        # add more nodes
+        self.tree.add_child(5, 4)
+        self.tree.add_child(5, 8)
+        self.tree.add_child(5, 9)
+        self.assertEqual(self.tree.tree_levels(), [[5], [4, 8, 9]])
+
+        self.tree.add_child(4, 41)
+        self.tree.add_child(4, 42)
+        self.tree.add_child(4, 43)
+        self.assertEqual(self.tree.tree_levels(),
+                         [[5], [41, 42, 43], [4, 8, 9]])
+
+        self.tree.add_child(8, 82)
+        self.tree.add_child(8, 87)
+        self.tree.add_child(8, 83)
+        self.assertEqual(self.tree.tree_levels(),
+                         [[5], [41, 42, 43], [82, 87, 83], [4, 8, 9]])
+
+        self.tree.add_child(9, 92)
+        self.tree.add_child(9, 97)
+        self.tree.add_child(9, 93)
+        self.assertEqual(
+            self.tree.tree_levels(),
+            [[5], [41, 42, 43], [82, 87, 83], [92, 97, 93], [4, 8, 9]])
+
 
 if __name__ == "__main__":
     unittest.main()
-
