@@ -4,6 +4,8 @@ class Tree:
     def __init__(self, root):
         self.data = root
         self.children = []
+        self.current_height = 0
+        self._height = 0
 
     def add_child(self, root, child):
         if self.root_is_current_tree(root):
@@ -11,6 +13,30 @@ class Tree:
             self.children.append(subtree)
         else:
             self.find_proper_node(root, child)
+
+    def height(self):
+        self._height = 0
+        self.current_height = 0
+
+        self.current_height += 1
+        if self.current_height > self._height:
+            self._height = self.current_height
+
+        if len(self.children) <= 0:
+            return self._height
+        else:
+            self.find_height(self.children)
+
+        return self._height
+
+    def find_height(self, children):
+        self.current_height += 1
+        if self.current_height > self._height:
+            self._height = self.current_height
+
+        for tree in children:
+            if len(tree.children) > 0:
+                self.find_height(tree.children)
 
     def find(self, x):
         if self.data == x:
