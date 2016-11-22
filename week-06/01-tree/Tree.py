@@ -6,13 +6,18 @@ class Tree:
         self.children = []
         self.current_height = 0
         self._height = 0
+        self._count = 1
 
     def add_child(self, root, child):
+        self._count += 1
         if self.root_is_current_tree(root):
             subtree = Tree(child)
             self.children.append(subtree)
         else:
             self.find_proper_node(root, child)
+
+    def count_nodes(self):
+        return self._count
 
     def height(self):
         self._height = 0

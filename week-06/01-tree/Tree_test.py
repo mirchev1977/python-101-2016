@@ -181,6 +181,23 @@ class TreeTest(unittest.TestCase):
         # print("***end test_height")
         # print()
 
+    def test_attr_count(self):
+        self.tree.add_child(5, 4)
+        self.tree.add_child(5, 8)
+        self.tree.add_child(5, 9)
+        self.tree.add_child(4, 41)
+        self.tree.add_child(4, 42)
+        self.tree.add_child(4, 43)
+        self.tree.add_child(4, 44)
+        self.tree.add_child(8, 82)
+        self.tree.add_child(8, 87)
+        self.tree.add_child(8, 83)
+        self.tree.add_child(9, 92)
+        self.tree.add_child(9, 98)
+        self.tree.add_child(9, 93)
+
+        self.assertEqual(self.tree.count_nodes(), 14)
+
 
 if __name__ == "__main__":
     unittest.main()
