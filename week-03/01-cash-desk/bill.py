@@ -41,4 +41,3 @@ class CountedBill(Bill):
         super().__init__(amount)
         self.bill_count = bill_count
         self.banknote_key = banknote_key
-        
