@@ -87,3 +87,14 @@ PROMOTE_USER_TO_PATIENT = '''
     INSERT INTO PATIENT (ID)
     VALUES (?)
 '''
+
+HOSPITALIZE_PERSON = '''
+    INSERT INTO hospital_stay (STARTDATE, ENDDATE, ROOM, INJURY, PATIENT_ID)
+    VALUES (?, ?, ?, ?, ?)
+'''
+
+GET_ALL_PATIENTS = '''
+    SELECT usr.id FROM user as usr
+    JOIN patient as pat
+    on usr.ID = pat.ID
+'''

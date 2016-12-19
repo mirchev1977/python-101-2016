@@ -57,5 +57,28 @@ def create_user(username, password, age, is_active):
     decide_if_doctor(lastId)
 
 
+def get_all_patient_ids():
+    patients = c.execute(GET_ALL_PATIENTS)
+    lst_patient_ids = []
+    for x in patients:
+        lst_patient_ids.append(x['id'])
+
+    return lst_patient_ids
+
+
+def hospitalize_patients():
+    lst_patient_ids = get_all_patient_ids()
+    illnesses = ['sclerosis', 'diabetes', 'arm fracture',          'cold', 'flu', 'insomnia']
+    rooms = ['101', '102', '205', '208', '313', '458']
+    startDate = ['2016-05-14', '2016-06-17', '2016-07-25', '2016-08-03', '2016-09-19', '2016-10-24', '2016-11-13', ]
+    endDate = ['2016-05-14', '2016-06-17', '2016-07-25', '2016-08-03', '2016-09-19', '2016-10-24', '2016-11-13', ]
+
+    currentId = choice(lst_patient_ids)
+    print(currentId)
+
+
 create_user('dr. pesho', 'az_sym_dr_pesho', 55, 0)
 create_user('pesho', 'az_sym_pesho', 22, 0)
+create_user('dr. kirkor', 'az_sym_dr_kirkor', 28, 0)
+create_user('gosho', 'az_sym_gosho', 48, 0)
+hospitalize_patients()
