@@ -1,18 +1,16 @@
-def get_promotion(months):
-    def receiver(func):
-        def decorated(user_id, number_months):
-            if number_months > months:
-                number_months += 1
-            return func(user_id, number_months)
+def accepts(string_):
+    def receiver(fun):
+        def decorated(string):
+            if isinstance(string, string_):
+                return fun(string)
+            else:
+                raise ValueError('not of proper type', string_)
         return decorated
     return receiver
 
+@accepts(str)
+def say_hello(name):
+    print('Hello, I am {}'.format(name))
 
-@get_promotion(3)
-def pay_internet(user_id, number_months):
-    print("user {} payed for {} months".format(user_id, number_months))
-
-
-pay_internet(1, 2)
-pay_internet(1, 3)
-pay_internet(1, 4)
+say_hello('Kiro')
+say_hello(25)
