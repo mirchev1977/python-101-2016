@@ -13,4 +13,4 @@ def say_hello(name):
     print('Hello, I am {}'.format(name))
 
 say_hello('Kiro')
-say_hello(25)
+# say_hello(25)
